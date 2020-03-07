@@ -1,7 +1,4 @@
+.idea/
+target/
+kevin-addison-itv.iml
 
-!/.idea/
-!/kevin-addison-itv.iml
-!/target/
-/.idea/
-/target/
-/kevin-addison-itv.iml
