@@ -37,7 +37,7 @@ jobs:
         uses: unacast/actions-github-deployment-status@0.2
         with:
           # The GITHUB_TOKEN secret
-          github_token: ACTION_TOKEN
+          github_token: 6d5cddd5d67b18cb439118189aa0a14dfe4732c0
           # The status to create. Can be one of error, failure, inactive, in_progress, queued pending, or success
           status: success
   
