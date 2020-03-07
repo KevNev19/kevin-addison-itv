@@ -30,17 +30,15 @@ jobs:
         java-version: 1.8
     - name: Build with Maven
       run: mvn -B test --file pom.xml
-  status:
-    runs-on: ubuntu-latest
+  send_status:
+    runs-on: [ubuntu-latest]
     steps:
-      - name: Custom Github Status
-        uses: geekodour/gh-actions-custom-status@v0.0.4
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          LAST_COMMIT_SHA: ${{ github.event.client_payload.LAST_COMMIT_SHA }}
+      - name: Create Github Deployment Status
+        uses: unacast/actions-github-deployment-status@0.2
         with:
-          args: >-
-            --state=success
-            --context=status-update
-            --target_url=https://github.com/${{ github.repository }}/actions
+          # The GITHUB_TOKEN secret
+          github_token: ACTION_TOKEN
+          # The status to create. Can be one of error, failure, inactive, in_progress, queued pending, or success
+          status: success
+  
     
