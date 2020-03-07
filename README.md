@@ -1,5 +1,7 @@
 # Kevin Addison
 
+![Java CI with Maven](https://github.com/KevNev19/kevin-addison-itv/workflows/Java%20CI%20with%20Maven/badge.svg)
+
 ## ITV Code Challenge
 
 ### Question needing to be answered
