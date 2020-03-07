@@ -30,14 +30,17 @@ jobs:
         java-version: 1.8
     - name: Build with Maven
       run: mvn -B test --file pom.xml
-  format:
+  status:
     runs-on: ubuntu-latest
     steps:
-      - name: Google Java Format
-        uses: axel-op/googlejavaformat-action@v2.0.0
+      - name: Custom Github Status
+        uses: geekodour/gh-actions-custom-status@v0.0.4
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          LAST_COMMIT_SHA: ${{ github.event.client_payload.LAST_COMMIT_SHA }}
         with:
-          # Arguments for the Google Java Format executable
-          args: --replace
-          # Set to true to not commit the changes
-          skipCommit: false
+          args: >-
+            --state=success
+            --context=status-update
+            --target_url=https://github.com/${{ github.repository }}/actions
     
