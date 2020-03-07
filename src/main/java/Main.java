@@ -1,5 +1,6 @@
 import java.time.Instant;
-import java.time.temporal.ChronoUnit;
+import java.time.LocalDateTime;
+import java.time.ZonedDateTime;
 import java.util.List;
 
 /**
@@ -11,20 +12,27 @@ import java.util.List;
 public class Main {
 
     public int getMaximumConcurrentPlays(List<VideoPlayInfo> plays) {
-        int counter = 0;
+        int concurrent = 0;
         for (int i = 0; i < plays.size(); i++) {
             for (int j = 1; j < plays.size(); j++) {
-                if (checkDateRangeOverlaps(plays.get(i).getStartTime(), plays.get(j).getEndTime())) {
-                    counter++;
+                if (i == j) break;
+                if (checkDateOverlap(getLocalDateTime(plays.get(i).getStartTime()),
+                        getLocalDateTime(plays.get(j).getStartTime()),
+                        getLocalDateTime(plays.get(i).getEndTime()),
+                        getLocalDateTime(plays.get(j).getEndTime()))) {
+                    concurrent++;
                 }
             }
         }
-        return counter;
+        return concurrent;
     }
 
-    public boolean checkDateRangeOverlaps(Instant start, Instant end) {
-        long numOfHoursBetween = ChronoUnit.HOURS.between(start, end);
-        return numOfHoursBetween < 0;
+    private LocalDateTime getLocalDateTime(Instant startTime) {
+        return LocalDateTime.ofInstant(startTime, ZonedDateTime.now().getZone());
+    }
+
+    private boolean checkDateOverlap(LocalDateTime start1, LocalDateTime start2, LocalDateTime end1, LocalDateTime end2) {
+        return start1.isBefore(end2) && start2.isBefore(end1);
     }
 
 }
