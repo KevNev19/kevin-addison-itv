@@ -1,6 +1,7 @@
 # Kevin Addison
 
 ![Java CI with Maven](https://github.com/KevNev19/kevin-addison-itv/workflows/Java%20CI%20with%20Maven/badge.svg)
+[![CodeFactor](https://www.codefactor.io/repository/github/kevnev19/kevin-addison-itv/badge)](https://www.codefactor.io/repository/github/kevnev19/kevin-addison-itv)
 
 ## ITV Code Challenge
 
