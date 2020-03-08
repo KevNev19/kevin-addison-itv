@@ -30,9 +30,4 @@ jobs:
         java-version: 1.8
     - name: Build with Maven
       run: mvn -B test --file pom.xml
-  send_status:
-    runs-on: [ubuntu-latest]
-    steps:
-      - name: GitHub Deployments
-        uses: bobheadxi/deployments@v0.2.0
     
