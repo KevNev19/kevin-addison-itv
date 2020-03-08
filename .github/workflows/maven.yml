@@ -21,13 +21,4 @@ jobs:
         run: mvn -B clean package -DskipTests
       - name: Maven Verify
         run: mvn -B clean verify -Pintegration-test
-      - name: SonarQube Scan
-        uses: kitabisa/sonarqube-action@v0.0.1
-        with:
-          # SonarQube server URL
-          host: http://localhost:9000
-          # Login or authentication token of a SonarQube user
-          login: admin
-          # Password that goes with the sonar.login username. This should be left blank if an authentication token is being used.
-          password: admin
         
