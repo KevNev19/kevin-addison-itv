@@ -33,12 +33,6 @@ jobs:
   send_status:
     runs-on: [ubuntu-latest]
     steps:
-      - name: Create Github Deployment Status
-        uses: unacast/actions-github-deployment-status@0.2
-        with:
-          # The GITHUB_TOKEN secret
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          # The status to create. Can be one of error, failure, inactive, in_progress, queued pending, or success
-          status: success
-  
+      - name: GitHub Deployments
+        uses: bobheadxi/deployments@v0.2.0
     
