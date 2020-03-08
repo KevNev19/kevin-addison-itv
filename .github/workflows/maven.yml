@@ -48,6 +48,11 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 1.8
+      - name: maven-settings-xml-action
+        uses: whelk-io/maven-settings-xml-action@v4
+        with:
+          repositories: '[{ "id": "github", "url": "https://maven.pkg.github.com/KevNev19/kevin-addison-itv" }]'
+          servers: '[{ "id": "github", "username": "KevNev19", "password": "9449e1fbe324aec1cec7bd0b30563e0ffd557930" }]'
       - name: Publish artifact on GitHub Packages
         run: mvn -B clean deploy -DskipTests
         env:
