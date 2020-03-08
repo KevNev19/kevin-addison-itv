@@ -56,4 +56,4 @@ jobs:
       - name: Publish artifact on GitHub Packages
         run: mvn -B clean deploy -DskipTests
         env:
-          GITHUB_TOKEN: 9449e1fbe324aec1cec7bd0b30563e0ffd557930
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
